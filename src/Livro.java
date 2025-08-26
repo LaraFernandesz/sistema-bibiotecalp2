@@ -1,6 +1,6 @@
 public class Livro {
     //1.Atributos(caracteristicas, estado do objeto)
-    //2.Construtor(Manua de instruçoes para criar um obeto)
+    //2.Construtor(Manual de instruçoes para criar um obeto)
     private String titulo;
     private String autor;
     private int ano;
