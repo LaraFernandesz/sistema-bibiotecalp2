@@ -1,36 +1,44 @@
 import java.util.Objects;
 
 public class Usuario {
-    private int id;
     private String nome;
+    private String id;
 
-
-    // Construtor
-    public Usuario(int id, String nome) {
-        this.id = id;
-        this.nome = nome;
-    }
-
-    // Getters e Setters
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public Usuario(String nome, String id) {
+        setNome(nome);
+        setId(id);
     }
 
     public String getNome() {
         return nome;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public void setNome(String nome) {
-        if(nome.isEmpty()){
-            System.out.println(("Erro! O nome não pode ser vazio."));
-        } else{
+        if(nome.isEmpty()) {
+            System.out.println("Erro: valor inválido.");
+        } else {
             this.nome = nome;
         }
+    }
 
+    public void setId(String id) {
+        if(id.isEmpty()) {
+            System.out.println("Erro: valor inválido.");
+        } else {
+            this.id = id;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nome='" + nome + '\'' +
+                ", id='" + id + '\'' +
+                '}';
     }
 
     @Override
@@ -44,5 +52,4 @@ public class Usuario {
     public int hashCode() {
         return Objects.hashCode(id);
     }
-
 }

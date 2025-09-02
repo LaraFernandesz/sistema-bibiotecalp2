@@ -1,14 +1,15 @@
+
 public class Livro {
-    //1.Atributos(caracteristicas, estado do objeto)
-    //2.Construtor(Manual de instruçoes para criar um obeto)
     private String titulo;
     private String autor;
     private int ano;
+    private StatusLivro status;
 
-    public Livro(String titulo, String autor, int ano){
+    public Livro(String titulo, String autor, int ano) {
         setTitulo(titulo);
         setAutor(autor);
         setAno(ano);
+        this.status = StatusLivro.DISPONIVEL;
     }
 
     public int getAno() {
@@ -17,12 +18,11 @@ public class Livro {
 
     public void setAno(int ano) {
         int ano_atual = 2025;
-        if(ano > ano_atual){
-            System.out.println("Erro: ano invalido.");
-        }else{
+        if (ano > ano_atual) {
+            System.out.println("Erro: ano inválido.");
+        } else {
             this.ano = ano;
         }
-
     }
 
     public String getTitulo() {
@@ -30,9 +30,9 @@ public class Livro {
     }
 
     public void setTitulo(String titulo) {
-        if(titulo == ""){
-            System.out.println("Erro: titulo invalido");
-        }else {
+        if (titulo == "") {
+            System.out.println("Erro: título inválido.");
+        } else {
             this.titulo = titulo;
         }
     }
@@ -42,19 +42,23 @@ public class Livro {
     }
 
     public void setAutor(String autor) {
-        if(autor == ""){
-            System.out.println("Erro: autor invalido");
-        }else {
-            this.titulo = titulo;
+        if (autor == "") {
+            System.out.println("Erro: título inválido.");
+        } else {
+            this.autor = autor;
         }
     }
 
     @Override
     public String toString() {
-        return "Livro{" +
-                "titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
-                ", ano=" + ano +
-                '}';
+        return "Livro '" + titulo + "', de " + autor + " (" + ano + ") - Status: " + status;
+    }
+
+    public StatusLivro getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusLivro status) {
+        this.status = status;
     }
 }
